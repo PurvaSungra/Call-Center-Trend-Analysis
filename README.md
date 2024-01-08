@@ -1,6 +1,7 @@
 # Call-Center-Trend-Analysis
 
-![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/47f05065-b6ca-422b-bad3-4f4ca2d878bf)
+![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/8f4e6c44-19ea-48b1-95b7-868f90c1f038)
+
 
 Background
 
