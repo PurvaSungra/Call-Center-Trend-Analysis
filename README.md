@@ -3,6 +3,8 @@
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/8f4e6c44-19ea-48b1-95b7-868f90c1f038)
 
 
+Link- https://app.powerbi.com/view?r=eyJrIjoiZGFmZTJlZDEtMDYzNC00NjUwLWEwYTctYjgyMTU4ZGIzYzJlIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9
+
 Background
 
 
@@ -32,7 +34,7 @@ Once I finished cleaning and organizing the data, it looked much better and was 
 
 After finishing up with the Power Query Editor, I started making some calculations using special functions called DAX functions. These calculations were important because they helped me create the Key Performance Indicators (KPIs) that were needed for the task. Some of the calculations I made are called measures.
 
-1.Positive Satisfaction Rating which were all ratings from 4 to 5.
+ 1. Positive Satisfaction Rating which were all ratings from 4 to 5.
 
 
 
@@ -140,13 +142,21 @@ We can also connect through http://www.linkedin.com/in/purvasungra
 All Formulas
 
 positive satisfaction rating = CALCULATE(COUNT('Sheet1'[Satisfaction rating]), FILTER('Sheet1','Sheet1'[Satisfaction rating] IN {4,5}))
+
 Satisfaction rating' = COUNT('Sheet1'[Satisfaction rating])
+
 Overall Customer Satisfaction = DIVIDE([positive satisfaction rating],[Satisfaction rating'],0)
+
 Calls answered = COUNTX(FILTER('Sheet1','Sheet1'[Answered (Y/N)]="Yes"),'Sheet1'[Answered (Y/N)])
+
 Calls Unanswered = COUNTX(FILTER('Sheet1','Sheet1'[Answered (Y/N)]="No"),'Sheet1'[Answered (Y/N)])
+
 Total Calls = CALCULATE('Sheet1'[Calls answered]+'Sheet1'[Calls Unanswered])
+
 Resolved Calls = COUNTX(FILTER('Sheet1','Sheet1'[Resolved]="yes"),'Sheet1'[Resolved])
+
 Unresolved Calls = COUNTX(FILTER('Sheet1','Sheet1'[Resolved]="No"),'Sheet1'[Resolved])
+
 average td = AVERAGE(Sheet1[AvgTalkDuration.time])
 
 
