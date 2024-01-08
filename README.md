@@ -33,34 +33,51 @@ After finishing up with the Power Query Editor, I started making some calculatio
 
 1.Positive Satisfaction Rating which were all ratings from 4 to 5.
 
+
+
+
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/724bbc44-0c7c-4d10-9183-7e51ce156a25)
 
 
 2. Count of Satisfaction Rating which was done in order to individually count all the satisfaction ratings that were provided.
+
+
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/79d35150-9e18-4fb1-9be9-9ee03ce2664f)
 
 
-
 3. Overall Customer Satisfaction whose formula is stated below:
+
+ 
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/0eed0545-0ddf-4832-beb0-5acbf33afbce)
 
 Haven known the way this calculation is usually done, I replicated same in Power BI by using the Positive Satisfaction Rating and Count of Satisfaction Rating measures that were already created.
 After creating the measure, I converted to percentage by just clicking on the percentage symbol in the formatting section.
 
 4. Total Calls answered which was created using the Answered (Y/N) column in order to view the total amount of calls that were answered.
+
+   
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/eb541486-e9bf-462d-9469-b1dd34330eb4)
 
 
 5. Total Calls Unanswered which was also created using the Answered (Y/N) column to view the total amount of calls that were unanswered.
+
+ 
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/03818201-e4c3-4b3b-aa85-ed2b4c1aaab0)
 
 
 6. Haven known the total answered and unanswered calls, I went ahead to create the total number of calls measures by just adding up total answered and unanswered calls together.
+
+   
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/ac3533ee-dd24-48ea-a755-e2e7201f9f5e)
 
 
 7. I have created the day Column and my providing one example like (Friday) the column will automatically take the data for the rest of the rows.
+
+   
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/663bdedf-5572-4844-aefc-f89b32d87bb5)
+
+
+
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/8ffda54c-7a9b-424f-aa5b-e039da48248f)
 
 
@@ -84,18 +101,26 @@ The dashboard structure was set, thereafter analysis using visuals were done to 
 For the sake of this analysis, four visuals were made to understand some trends in the Call Centre and some of the visuals created were:
 
 1) Stacked Bar Chart to show the Total Satisfaction Rating for each Agent which can be further filtered using the slicers available on the dashboard and from the visual, Jim has the highest rating whichever number it is between 1 & 5. Also, this visual was formatted to show some color variation on the bars from the highest value to the lowest.
+
+
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/b036e20b-85b1-47b0-bb25-fb91e78c9669)
 Stacked Bar Chart
 
 2)Line Chart to give an insight as to which Agent has the Total Speed of answer. This chart shows the total speed of agent in responding to calls and it’s obvious that Stewart who had the least satisfaction rate because he was slow in response to calls.
+
+
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/e3f37466-ab7c-4fa8-b35a-e29253113df6)
 Line Chart
 
 3) Pie Chart to show the Total Number of Calls based on the Topic. This chart clearly shows that people had more issues with streaming hence making it have the highest number of calls.
+
+
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/6e7497d2-cf83-4d6a-9021-50a0e5aab4b7)
 Pie Chart
 
 4) Matrix Chart to show each agent’s Performance Quadrant. This chart is just to show how much work each agent has done i.e. their individual performance.
+
+
 ![image](https://github.com/PurvaSungra/Call-Center-Trend-Analysis/assets/149881341/7f9145d6-f274-4e53-99a1-b8f9c7ba6ce5)
 Matrix Chart
 
@@ -109,5 +134,18 @@ All the visuals created sum up to a dashboard to further draw more insights and 
 Call Centre Dashboard
 
 Note: All the analysis was done with Power BI.
-
 We can also connect through http://www.linkedin.com/in/purvasungra
+
+All Formulas
+
+positive satisfaction rating = CALCULATE(COUNT('Sheet1'[Satisfaction rating]), FILTER('Sheet1','Sheet1'[Satisfaction rating] IN {4,5}))
+Satisfaction rating' = COUNT('Sheet1'[Satisfaction rating])
+Overall Customer Satisfaction = DIVIDE([positive satisfaction rating],[Satisfaction rating'],0)
+Calls answered = COUNTX(FILTER('Sheet1','Sheet1'[Answered (Y/N)]="Yes"),'Sheet1'[Answered (Y/N)])
+Calls Unanswered = COUNTX(FILTER('Sheet1','Sheet1'[Answered (Y/N)]="No"),'Sheet1'[Answered (Y/N)])
+Total Calls = CALCULATE('Sheet1'[Calls answered]+'Sheet1'[Calls Unanswered])
+Resolved Calls = COUNTX(FILTER('Sheet1','Sheet1'[Resolved]="yes"),'Sheet1'[Resolved])
+Unresolved Calls = COUNTX(FILTER('Sheet1','Sheet1'[Resolved]="No"),'Sheet1'[Resolved])
+average td = AVERAGE(Sheet1[AvgTalkDuration.time])
+
+
